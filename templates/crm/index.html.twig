@@ -1,6 +1,57 @@
 {% extends ('base.html.twig') %}
 
 {% block body %}
-    <h1>Widok ze strony CRM</h1>
+<br/>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% for message in app.flashes('removed') %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+
+<h1>Lista klientów</h1>
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Imie</td>
+                <td>Nazwisko</td>
+                <td>Adres</td>
+                <td>Szczegóły</td>
+                <td>Akcja</td>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for client in clients %}
+
+                <tr>
+                    <td>{{ client.id }}</td>
+                    <td>{{ client.name }}</td>
+                    <td>{{ client.surname }}</td>
+                    <td>{{ client.address }}</td>
+                    <td>
+                        <a href="{{ path('crm.show', {id: client.id}) }}">
+                            Wyświetl
+                        </a>
+                    </td>
+                    <td>
+                        <a CLASS="text-danger" href="{{ path('crm.delete', {id: client.id}) }}">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+        {% endfor %}
+        </tbody>
+
+
+    </table>
 
 {% endblock %}
