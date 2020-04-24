@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Clients;
+use App\Form\ClientType;
 use App\Repository\ClientsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,19 +37,26 @@ class CrmController extends AbstractController
      */
     public function create(Request $request)
     {
-        //create a new client- temporary until form is'nt made
-        $client=new Clients();
-        $client->setName('Andrzej')->setSurname('Nowak')->setAddress('Akacjowa 44, Warszawa');
+        $client = new Clients();
+        $form = $this->createForm(ClientType::class, $client);
 
-        //entity manager
-        $em = $this->getDoctrine()->getManager();
-        //persist
-        $em->persist($client);
-        $em->flush();
+        $form->handleRequest($request);
 
-        //return response
-        $this->addFlash('success', 'Klient został dodany!');
-        return $this->redirect($this->generateUrl('crm.index'));
+        if ($form->isSubmitted()){
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($client);
+            $em->flush();
+            $this->addFlash('success', 'Klient został dodany!');
+
+            return $this->redirect($this->generateUrl('crm.index'));
+        }
+
+
+
+        return $this->render('crm/create.html.twig', [
+            'form' => $form->createView()
+        ]);
 
     }
 

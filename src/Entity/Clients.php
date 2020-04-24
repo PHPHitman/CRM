@@ -19,17 +19,17 @@ class Clients
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $imie;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $surname;
+    private $nazwisko;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $address;
+    private $adres;
 
 
     public function getId(): ?int
@@ -37,38 +37,38 @@ class Clients
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getImie(): ?string
     {
-        return $this->name;
+        return $this->imie;
     }
 
-    public function setName(string $name): self
+    public function setImie(string $imie): self
     {
-        $this->name = $name;
+        $this->imie = $imie;
 
         return $this;
     }
 
-    public function getSurname(): ?string
+    public function getNazwisko(): ?string
     {
-        return $this->surname;
+        return $this->nazwisko;
     }
 
-    public function setSurname(string $surname): self
+    public function setNazwisko(string $nazwisko): self
     {
-        $this->surname = $surname;
+        $this->nazwisko = $nazwisko;
 
         return $this;
     }
 
-    public function getAddress(): ?string
+    public function getAdres(): ?string
     {
-        return $this->address;
+        return $this->adres;
     }
 
-    public function setAddress(string $address): self
+    public function setAdres(string $adres): self
     {
-        $this->address = $address;
+        $this->adres = $adres;
 
         return $this;
     }

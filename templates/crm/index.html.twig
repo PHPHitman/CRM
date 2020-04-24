@@ -34,24 +34,26 @@
 
                 <tr>
                     <td>{{ client.id }}</td>
-                    <td>{{ client.name }}</td>
-                    <td>{{ client.surname }}</td>
-                    <td>{{ client.address }}</td>
+                    <td>{{ client.imie }}</td>
+                    <td>{{ client.nazwisko }}</td>
+                    <td>{{ client.adres }}</td>
                     <td>
                         <a href="{{ path('crm.show', {id: client.id}) }}">
                             Wyświetl
                         </a>
                     </td>
                     <td>
-                        <a CLASS="text-danger" href="{{ path('crm.delete', {id: client.id}) }}">
+                        <a class="text-danger" href="{{ path('crm.delete', {id: client.id}) }}">
                             Delete
                         </a>
                     </td>
                 </tr>
         {% endfor %}
+
         </tbody>
 
 
     </table>
 
+    <a class="btn btn-success" role="button" href="{{ path('crm.create') }}">Dodaj</a>
 {% endblock %}
