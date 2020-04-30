@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 /**
  * @Route("/crm", name="crm.")
  */
@@ -94,5 +95,7 @@ class CrmController extends AbstractController
         $this->addFlash('removed', 'Klient został usunięty!');
         return $this->redirect($this->generateUrl('crm.index'));
     }
+
+
 
 }

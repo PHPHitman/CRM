@@ -1,0 +1,30 @@
+{
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.29.1",
+    "core-js": "^3.0.0",
+    "regenerator-runtime": "^0.13.2",
+    "webpack-notifier": "^1.6.0"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress"
+  },
+  "name": "crmproject",
+  "description": "> Simple CRM project.",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PHPHitman/CRM.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/PHPHitman/CRM/issues"
+  },
+  "homepage": "https://github.com/PHPHitman/CRM#readme"
+}
