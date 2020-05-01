@@ -3,7 +3,10 @@
     "@symfony/webpack-encore": "^0.29.1",
     "bootstrap": "^4.4.1",
     "core-js": "^3.0.0",
+    "node-sass": "^4.14.0",
+    "postcss-loader": "^3.0.0",
     "regenerator-runtime": "^0.13.2",
+    "sass-loader": "^7.1.0",
     "webpack-notifier": "^1.6.0"
   },
   "license": "UNLICENSED",
@@ -18,7 +21,10 @@
   "description": "> Simple CRM project.",
   "version": "1.0.0",
   "main": "webpack.config.js",
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "^3.5.0",
+    "popper.js": "^1.16.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PHPHitman/CRM.git"

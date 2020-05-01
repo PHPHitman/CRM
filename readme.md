@@ -1,3 +1,6 @@
+
+
+
 # CRM Symfony
 > Simple CRM project.
 
@@ -12,13 +15,9 @@
 * [Contact](#contact)
 
 ## General info
-Simple CRM system for a company. Till now I've done some backend:
--register of new user (access only for admin)
--login page
--CRM page (access only for logged users)
--add/show/remove clients functions
+Simple CRM system for a company. 
 
-Project is still in progress so I'll be adding a new functionality and of course some of frontend code.
+I add some frontend text content in Polish. Project is still in progress so I'll be adding a new functionality and of course some of frontend code.
 
 
 ## Screenshots
@@ -31,17 +30,23 @@ Project is still in progress so I'll be adding a new functionality and of course
 * Tech 4 - Bootstrap 4 
 
 ## Setup
-1.To run local start your local server, for example XAMPP, and switch on MySQL Server as well. 
-2.Next download repository and unpack it to htdocs inside xampp installation folder. 
-3.Open terminal and go into project directory
-4.Ececute commands:
-	composer install
-	yarn install
-	yarn add --dev @symfony/webpack-encore
-	yarn add webpack-notifier --dev
-	yarn encore dev
 
-5.Type http://localhost/crm-master/public/index.php/ in your browser
+* Clone or download repository and unpack it (if you're going to use XAMPP move it into htdocs inside XAMPP installation directory)
+* Open terminal and go into project directory
+ * Start your local server, for example Apache with XAMPP, and switch on MySQL server as well. You can use Symfony server instead by executing command:
+	  * php -S 127.0.0.1:8000 -t public
+* Ececute commands:
+	* composer install
+	* yarn install
+	* yarn add --dev @symfony/webpack-encore
+	* yarn add webpack-notifier --dev
+	* yarn encore dev
+* Type localhost/crm-master/public/index.php/ in your browser (*crm-master* is default project name)
+* Admin account username: admin password: admin
+
+I wrote this instruction on my computer where I have already installed PHP and setted global path, so probably it will be necessery. If you use password to phpmyadmin you'll have to add it into .env file. 
+
+If you'll have any issues with setup sorry for that, I've wrote it from my mind, didn't check it on different machine. 
 
 ## Code Examples
 
