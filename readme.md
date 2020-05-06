@@ -46,7 +46,7 @@ I add some frontend text content in Polish. Project is still in progress so I'll
 
 I wrote this instruction on my computer where I have already installed PHP and setted global path, so probably it will be necessery. If you use password to phpmyadmin you'll have to add it into .env file. 
 
-If you'll have any issues with setup sorry for that, I've wrote it from my mind, didn't check it on different machine. 
+If you'll have any issues with setup sorry for that, I wrote it from my mind, didn't check it on different machine. 
 
 ## Code Examples
 

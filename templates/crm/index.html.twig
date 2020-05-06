@@ -1,59 +1,183 @@
 {% extends ('base.html.twig') %}
 
 {% block body %}
-<br/>
+
     {% for message in app.flashes('success') %}
-        <div class="alert alert-success">
-            {{ message }}
-        </div>
-    {% endfor %}
-
-    {% for message in app.flashes('removed') %}
-        <div class="alert alert-danger">
-            {{ message }}
-        </div>
-    {% endfor %}
-
-
-<h1>Lista klientów</h1>
-    <table class="table table-stripped">
-        <thead>
-            <tr>
-                <td>ID</td>
-                <td>Imie</td>
-                <td>Nazwisko</td>
-                <td>Adres</td>
-                <td>Szczegóły</td>
-                <td>Akcja</td>
-            </tr>
-        </thead>
-
-        <tbody>
-
-        {% for client in clients %}
-
-                <tr>
-                    <td>{{ client.id }}</td>
-                    <td>{{ client.imie }}</td>
-                    <td>{{ client.nazwisko }}</td>
-                    <td>{{ client.adres }}</td>
-                    <td>
-                        <a href="{{ path('crm.show', {id: client.id}) }}">
-                            Wyświetl
-                        </a>
-                    </td>
-                    <td>
-                        <a class="text-danger" href="{{ path('crm.delete', {id: client.id}) }}">
-                            Delete
-                        </a>
-                    </td>
-                </tr>
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
         {% endfor %}
 
-        </tbody>
+        {% for message in app.flashes('removed') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+<div class="usermenu">
+    <h1>{{ app.user.username }}</h1>
+    <br/>
+    <div id="accordion">
+  <p>
+      {% if is_granted('ROLE_ADMIN') %}
+
+   <h5>PANEL ADMINISTRACYJNY</h5>
+
+      {% endif %}
 
 
-    </table>
+        <h5>
+          <a  data-toggle="collapse"  href="#Klienci" aria-expanded="true" aria-controls="Klienci" >
+              KLIENCI
+         </a>
+        </h5>
 
-    <a class="btn btn-success" role="button" href="{{ path('crm.create') }}">Dodaj</a>
+    <div class="collapse" id="Klienci" data-parent="#accordion">
+        <div class="list-group">
+
+                <ul>
+                    <li>
+                        <a href="#">przeglądaj</a>
+                    </li>
+                </ul>
+
+        </div>
+    </div>
+
+    <h5>
+        <a  data-toggle="collapse" href="#zlecenia" aria-expanded="false" aria-controls="zlecenia">
+            ZLECENIA
+        </a>
+    </h5>
+    <div class="collapse" id="zlecenia" data-parent="#accordion">
+        <div class="list-group">
+
+                <ul>
+                    <li>
+                        <a href="#">twoje zlecenia</a>
+                    </li>
+                    <li>
+                        <a href="#">nadchodzące</a>
+                    </li>
+                    <li>
+                        <a href="#">zrealizowane</a>
+                    </li>
+                    <li>
+                        <a href="#">odrzucone</a>
+                    </li>
+                </ul>
+
+        </div>
+    </div>
+
+
+    <h5>
+        <a  data-toggle="collapse" href="#platnosci" aria-expanded="false" aria-controls="platnosci">
+            PŁATNOŚCI
+        </a>
+    </h5>
+    <div class="collapse" id="platnosci" data-parent="#accordion">
+        <div class="list-group">
+            <a href="#">
+                <ul>
+                    <li>
+                        <a href="#">otrzymane</a>
+                    </li>
+                    <li>
+                        <a href="#">niezapłacone</a>
+                    </li>
+                </ul>
+            </a>
+        </div>
+    </div>
+    <h5>
+        <a  data-toggle="collapse" href="#faktury" aria-expanded="false" aria-controls="faktury">
+            FAKTURY
+        </a>
+    </h5>
+    <div class="collapse" id="faktury" data-parent="#accordion">
+        <div class="list-group">
+            <a href="#">
+                <ul>
+                    <li>
+                        <a href="#">wystawione</a>
+                    </li>
+                    <li>
+                        <a href="#">do wystawienia</a>
+                    </li>
+                </ul>
+            </a>
+        </div>
+    </div>
+
+    <h5>
+        <a  data-toggle="collapse" href="#pracownicy" aria-expanded="false" aria-controls="pracownicy">
+            PRACOWNICY
+        </a>
+    </h5>
+    <div class="collapse" id="pracownicy" data-parent="#accordion">
+        <div class="list-group">
+            <a href="#">
+                <ul>
+                    <li>
+                        <a href="#">przeglądaj</a>
+                    </li>
+
+                </ul>
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+    </p>
+
+    </div>
+</div>
+
+<div class="container">
+    <h1>Lista klientów</h1>
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Imie</td>
+                    <td>Nazwisko</td>
+                    <td>Adres</td>
+                    <td>Szczegóły</td>
+                    <td>Akcja</td>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            {% for client in clients %}
+
+                    <tr>
+                        <td>{{ client.id }}</td>
+                        <td>{{ client.imie }}</td>
+                        <td>{{ client.nazwisko }}</td>
+                        <td>{{ client.adres }}</td>
+                        <td>
+                            <a href="{{ path('crm.show', {id: client.id}) }}">
+                                Wyświetl
+                            </a>
+                        </td>
+                        <td>
+                            <a class="text-danger" href="{{ path('crm.delete', {id: client.id}) }}">
+                                Usuń
+                            </a>
+                        </td>
+                    </tr>
+            {% endfor %}
+
+            </tbody>
+
+
+        </table>
+
+        <a class="btn btn-success" role="button" href="{{ path('crm.create') }}">Dodaj</a>
+
+</div>
 {% endblock %}
