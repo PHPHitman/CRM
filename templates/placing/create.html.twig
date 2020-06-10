@@ -1,0 +1,20 @@
+{%  extends('base.html.twig') %}
+
+{%  block body %}
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-auto">
+                {{ block("sidebar", 'crm/index.html.twig') }}
+            </div>
+
+            <div class="col">
+                <br/>
+                <h2>Dodaj zlecenie</h2>
+                {{ form(form) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

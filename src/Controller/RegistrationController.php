@@ -4,7 +4,12 @@ namespace App\Controller;
 
 use App\Entity\User;
 
+use Doctrine\DBAL\Types\IntegerType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\CallbackTransformer;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -23,11 +28,33 @@ class RegistrationController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
+
         $form = $this->createFormBuilder()
+
+
+            ->add('name',TextType::class, [
+                'label'=>'Imie'
+            ])
+
+            ->add('surname', TextType::class, [
+                'label' =>'Nazwisko'
+            ])
+            ->add('city', TextType::class,[
+                'label'=>'Miasto'
+            ])
+            ->add('address', TextType::class,[
+                'label'=>'Adres zamieszkania'
+            ])
+
+
             ->add('username', TextType::class, [
                 'label'=>'Nazwa użytkownika'
             ]
-        )
+            )
+            ->add('phone', TextType::class,[
+                'label'=>'Nr. telefonu'
+            ])
+
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options'  => ['label' => 'Hasło'],
@@ -35,7 +62,7 @@ class RegistrationController extends AbstractController
             ])
             ->add('Zarejestruj', SubmitType::class, [
                 'attr' =>[
-                    'class'=>'btn btn-success float-right'
+                    'class'=>'btn btn-info float-right'
                 ]
             ])
             ->getForm();
@@ -49,14 +76,22 @@ class RegistrationController extends AbstractController
             $user->setUsername($data['username']);
             $user->setPassword(
                 $passwordEncoder->encodePassword($user, $data['password'])
+
             );
+            $user->setName($data['name']);
+            $user->setSurname($data['surname']);
+            $user->setAddress($data['address']);
+            $user->setPhone($data['phone']);
+            $user->setCity($data['city']);
+          //  $user->setRoles($data['role']);
 
 
             $em=$this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('app_login'));
+            $this->addFlash('success', 'Pracownik został dodany');
+            return $this->redirect($this->generateUrl('crm.users'));
         }
 
         return $this->render('registration/index.html.twig',[

@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+{%  block body %}
+    <div id="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                    <div class="col-md-auto">
+                        {{ block("sidebar", 'crm/index.html.twig') }}
+                    </div>
+
+            <div class="col">
+                <h2>Lista zleceń</h2>
+
+                    {%  for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+
+                    {% for message in app.flashes('removed') %}
+                        <div class="alert alert-danger">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+
+
+
+                    <table class="table  table-striped">
+
+                            <thead class="thead-dark">
+
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Klient</th>
+                                <th scope="col">Zamówienie</th>
+                                <th scope="col">Data dodania</th>
+                                <th scope="col">Dodane przez</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Oznacz jako</th>
+                                <th scope="col">Szczegóły</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {%  for placing in placings %}
+                                <tr>
+                                    <td>{{ placing.id }}</td>
+                                    <td>{{ placing.company.name}} {{ placing.company.surname }}</td>
+                                    <td>{{ placing.service }}</td>
+                                    <td>{{ placing.date|date('d.m.Y') }}</td>
+                                    <td>{{ placing.addedby }}</td>
+                                    <td>{{ placing.status }}</td>
+                                    <td>
+                                        <a href="{{ path('placing.show',{ id:placing.id}) }}">wyświetl</a>
+                                    </td>
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                    </table>
+                <a class="btn btn-info" role="button" href="{{ path('placing.create') }}">Dodaj</a>
+                </div>
+            </div>
+         </div>
+    </div>
+
+{%  endblock %}

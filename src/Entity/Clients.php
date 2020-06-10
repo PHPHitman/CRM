@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -16,20 +18,63 @@ class Clients
      */
     private $id;
 
+
+
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToMany(targetEntity="App\Entity\Placings", mappedBy="company")
      */
-    private $imie;
+    private $placings;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nazwisko;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $adres;
+    private $surname;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $address;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $addedby;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $city;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $phone;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $note;
+
+ 
+
+    public function __construct()
+    {
+        $this->placings = new ArrayCollection();
+        $time = new \DateTime();
+        $this->date = $time;
+    }
+
+    
 
 
     public function getId(): ?int
@@ -37,41 +82,137 @@ class Clients
         return $this->id;
     }
 
-    public function getImie(): ?string
+    
+
+    /**
+     * @return Collection|Placings[]
+     */
+    public function getPlacings(): Collection
     {
-        return $this->imie;
+        return $this->placings;
     }
 
-    public function setImie(string $imie): self
+    public function addPlacing(Placings $placing): self
     {
-        $this->imie = $imie;
+        if (!$this->placings->contains($placing)) {
+            $this->placings[] = $placing;
+            $placing->setCompany($this);
+        }
 
         return $this;
     }
 
-    public function getNazwisko(): ?string
+    public function removePlacing(Placings $placing): self
     {
-        return $this->nazwisko;
-    }
-
-    public function setNazwisko(string $nazwisko): self
-    {
-        $this->nazwisko = $nazwisko;
+        if ($this->placings->contains($placing)) {
+            $this->placings->removeElement($placing);
+            // set the owning side to null (unless already changed)
+            if ($placing->getCompany() === $this) {
+                $placing->setCompany(null);
+            }
+        }
 
         return $this;
     }
 
-    public function getAdres(): ?string
+    public function getName(): ?string
     {
-        return $this->adres;
+        return $this->name;
     }
 
-    public function setAdres(string $adres): self
+    public function setName(string $name): self
     {
-        $this->adres = $adres;
+        $this->name = $name;
 
         return $this;
     }
+
+    public function getSurname(): ?string
+    {
+        return $this->surname;
+    }
+
+    public function setSurname(string $surname): self
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getAddedby(): ?string
+    {
+        return $this->addedby;
+    }
+
+    public function setAddedby(string $addedby): self
+    {
+        $this->addedby = $addedby;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getPhone(): ?int
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(int $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    public function setNote(?string $note): self
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+
+
 
 
 }

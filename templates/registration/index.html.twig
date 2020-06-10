@@ -1,7 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <br/>
-    {{ form(form) }}
+
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-md-auto">
+                        {{ block("sidebar", "crm/index.html.twig") }}
+                    </div>
+
+                <div class="col">
+                    <br/>
+
+                     <h2>Stwórz konto nowego pracownika</h2>
+                    {{ form(form) }}
+                </div>
+            </div>
+        </div>
+
 
 {% endblock %}

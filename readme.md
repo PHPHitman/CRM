@@ -42,7 +42,7 @@ I add some frontend text content in Polish. Project is still in progress so I'll
 	* yarn add webpack-notifier --dev
 	* yarn encore dev
 * Type localhost/crm-master/public/index.php/ in your browser (*crm-master* is default project name)
-* Admin account username: admin password: admin
+
 
 I wrote this instruction on my computer where I have already installed PHP and setted global path, so probably it will be necessery. If you use password to phpmyadmin you'll have to add it into .env file. 
 

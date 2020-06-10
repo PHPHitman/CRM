@@ -8,12 +8,15 @@ $user-menu-bg: #04222f;
 $text-color-menu: #007bff;
 $username-color: orange;
 
+
 .usermenu{
+  margin:0;
   background-color: $user-menu-bg;
   color: $text-color-menu;
   float:left;
-  width:300px;
-  height:1000px;
+  min-width: 250px;
+  width:100%;
+  min-height: 95vh;
   padding:20px;
   padding-top:50px;
 }
@@ -22,22 +25,52 @@ $username-color: orange;
   color: $text-color-menu;
 
 }
+.col-md-auto {
+padding:0 !important;
+
+}
 
 .usermenu h1{
   color:$username-color !important;
   text-align: center;
+
+}
+.usermenu a:hover{
+  color: white;
+  text-decoration: none;
 }
 
 .container{
-  float:left;
-  padding:50px;
+
+ margin:0;
+
+
+}
+#content{
 
 }
 
-.accordion .current a{
+#accordion .current a{
   color: red;
 }
+.clear{
+  clear:both;
+}
 
+#content .col{
+  padding: 0 ;
+}
+#content .btn{
+  margin:20px;
+}
+
+h2{
+  padding:20px;
+}
+
+.userdata{
+  padding:25px;
+}
 
 
 // the ~ allows you to reference things in node_modules

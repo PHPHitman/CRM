@@ -1,0 +1,84 @@
+{% extends('base.html.twig') %}
+
+{% block body %}
+
+<div id="content">
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-md-auto">
+            {{block("sidebar","crm/index.html.twig")}}
+        </div>
+            <div class="col">
+                <h2>Lista klientów</h2>
+
+                {% block flashmessage %}
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+
+                    {% for message in app.flashes('removed') %}
+                        <div class="alert alert-danger">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endblock %}
+
+                    <table class="table  table-striped">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Imie</th>
+                            <th scope="col">Nazwisko</th>
+                            <th scope="col">Adres</th>
+                            <th scope="col">Data dodania</th>
+                            <th scope="col">Dodane przez</th>
+                            <th scope="col">Szczegóły</th>
+                            <th scope="col">Akcja</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                            {% for client in clients %}
+
+                                <tr>
+                                    <td>{{ client.id }}</td>
+                                    <td>{{ client.name }}</td>
+                                    <td>{{ client.surname }}</td>
+                                    <td>{{ client.address }}</td>
+                                    <td>{{ client.date|date('d.m.Y') }}</td>
+                                    <td>{{ client.addedby }}</td>
+                                    <td>
+                                        <a href="{{ path('crm.show', {id: client.id}) }}">
+                                            Wyświetl
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary btn-sm dropdown-toggle m-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Wybierz
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="{{ path('crm.show', {id: client.id}) }}">wyświetl</a>
+                                                <a class="dropdown-item" href="{{ path('crm.delete', {id: client.id}) }}">usuń</a>
+                                            </div>
+                                        </div>
+
+{#                                        <a class="text-danger" href="{{ path('crm.delete', {id: client.id}) }}">#}
+{#                                            Usuń#}
+{#                                        </a>#}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                <a class="btn btn-info" role="button" href="{{ path('crm.create') }}">Dodaj</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
