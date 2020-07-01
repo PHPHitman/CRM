@@ -4,18 +4,17 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-auto">
-                {{ block("sidebar", "crm/index.html.twig") }}
+                {{ block("sidebar", 'base.html.twig') }}
             </div>
             <div class="col">
-                <div class="userdata">
-                    <h1>Imię i nazwisko: {{ user.name }} {{ user.surname }}</h1>
+                <div class="details">
+                    <h1>{{ user.name }} {{ user.surname }}</h1>
                     <hr>
                     Nazwa użytkownika:  {{ user.username }}<br/>
-                    Imię i nazwisko:    {{ user.name }} {{ user.surname }}<br/>
                     Miasto:             {{ user.city }}<br/>
                     Adres zamieszkania: {{ user.address }}<br/>
                     Telefon:            {{ user.phone }}<br/><br/>
-                    <a class="btn btn-danger" role="button" href="{{ path('register') }}">Usuń</a>
+                    <a class="btn btn-danger" role="button" href="{{ path('users.delete', {id:user.id}) }}">Usuń</a>
                 </div>
             </div>
         </div>

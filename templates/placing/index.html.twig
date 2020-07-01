@@ -5,25 +5,13 @@
             <div class="row">
 
                     <div class="col-md-auto">
-                        {{ block("sidebar", 'crm/index.html.twig') }}
+                        {{ block("sidebar", 'base.html.twig') }}
                     </div>
 
             <div class="col">
                 <h2>Lista zleceń</h2>
 
-                    {%  for message in app.flashes('success') %}
-                        <div class="alert alert-success">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-
-                    {% for message in app.flashes('removed') %}
-                        <div class="alert alert-danger">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-
-
+                    {{ block("flashmessage", 'base.html.twig') }}
 
                     <table class="table  table-striped">
 
@@ -36,8 +24,7 @@
                                 <th scope="col">Data dodania</th>
                                 <th scope="col">Dodane przez</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Oznacz jako</th>
-                                <th scope="col">Szczegóły</th>
+                                <th scope="col">Akcja</th>
                             </tr>
                             </thead>
 
@@ -51,8 +38,17 @@
                                     <td>{{ placing.addedby }}</td>
                                     <td>{{ placing.status }}</td>
                                     <td>
-                                        <a href="{{ path('placing.show',{ id:placing.id}) }}">wyświetl</a>
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary btn-sm dropdown-toggle m-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Wybierz
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="{{ path('placing.show', {id: placing.id}) }}">wyświetl</a>
+                                                <a class="dropdown-item" href="{{ path('placing.delete', {id: placing.id}) }}">usuń</a>
+                                            </div>
+                                        </div>
                                     </td>
+
 
                                 </tr>
                             {% endfor %}

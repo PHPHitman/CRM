@@ -60,6 +60,7 @@ class PlacingController extends AbstractController
             $em->persist($placing);
             $em->flush();
 
+            $this->addFlash('success', 'Zamówienie zostało dodane!');
             return $this->redirect($this->generateUrl('placing.index'));
         }
 
@@ -79,5 +80,19 @@ class PlacingController extends AbstractController
         return $this->render('placing/show.html.twig', [
             'placing' => $placing
         ]);
+    }
+
+    /**
+     * @Route("/delete/{id}", name="delete")
+     * @param Placings $placings
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function delete(Placings $placings){
+        $em = $this->getDoctrine()->getManager();
+        $em -> remove($placings);
+        $em-> flush();
+
+        $this->addFlash('removed', 'Zamówienie zostało usunięte!');
+        return $this->redirect($this->generateUrl('placing.index'));
     }
 }

@@ -1,0 +1,25 @@
+{% extends ('base.html.twig') %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-auto">
+                {{ block("sidebar", 'base.html.twig') }}
+            </div>
+            <div class="col">
+                <div class="details">
+                    <h1>{{ client.name }} {{ client.surname }}</h1>
+                    <hr/>
+                    Miasto: {{ client.city }}<br/>
+                    Adres: {{ client.address }}<br/>
+                    Telefon: {{ client.phone }}<br/>
+                    Adnotacje: {{ client.note }}<br/>
+                    Data dodania: {{ client.date|date('d.m.Y')  }}<br/>
+                    Dodane przez: {{ client.addedby }}<br/><br/>
+
+                    <a class="btn btn-danger" role="button" href="{{ path('clients.delete', {id: client.id}) }}">Usuń</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

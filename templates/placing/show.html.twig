@@ -4,10 +4,21 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-auto">
-                {{ block("sidebar", "crm/index.html.twig") }}
+                {{ block("sidebar", 'base.html.twig') }}
             </div>
             <div class="col">
                 <h1>{{ placing.service }}</h1>
+                <hr/>
+                Nazwa klienta: {{ placing.company.name }} {{ placing.company.surname }}<br/>
+                Adres: {{ placing.company.city }} {{ placing.company.address }}<br/>
+                Zlecenie: {{ placing.service }}<br/>
+                Dodatkowe informacje: {{ placing.note }}<br/>
+                Data dodania: {{ placing.date|date('d.m.Y') }}<br/>
+                Dodał: {{ placing.addedby }}<br/>
+                Status: {{ placing.status }}<br/><br/>
+
+                <a class="btn btn-danger" role="button" href="{{ path('placing.delete', {id:placing.id}) }}">Usuń</a>
+
             </div>
         </div>
     </div>

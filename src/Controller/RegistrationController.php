@@ -91,7 +91,7 @@ class RegistrationController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'Pracownik został dodany');
-            return $this->redirect($this->generateUrl('crm.users'));
+            return $this->redirect($this->generateUrl('users.index'));
         }
 
         return $this->render('registration/index.html.twig',[
