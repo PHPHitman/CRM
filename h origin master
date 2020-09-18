@@ -1,0 +1,108 @@
+[33mcommit 38c7b3b4ab8aa58f20ce7e3de28ad873bc4572f4[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Thu Sep 17 13:54:40 2020 +0200
+
+    Security update
+
+[33mcommit 2f631c0b99c2e18d5a823caaca169db7b6be43d9[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Thu Sep 17 13:36:07 2020 +0200
+
+    Add screenshots
+
+[33mcommit 44e4b5107d7256e594211e22c800c75711eea459[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Wed Jul 1 19:08:59 2020 +0200
+
+    Make code more tidy, add new controllers, group functions and rebuild existing controllers.
+
+[33mcommit 9b0d5997a9d4c434578b2c2efc1866b7e9300c67[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Wed Jun 10 14:08:15 2020 +0200
+
+    Make controller, entity, form and table for tasks (placings)
+    
+    - add entity placings (for task) related to clients entity (list of clients available)
+    - stylize table for each view
+    - add dropdown buttons with actions
+    - some changes with views for details of users
+
+[33mcommit 74c8431da4adeaec10e305724f2e64f24a16498d[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Wed May 6 11:03:32 2020 +0200
+
+    Add collapsing sidebar
+
+[33mcommit 6d997ea9f7f9076dc1e0c2523f4477129dfbee9a[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Fri May 1 15:10:22 2020 +0200
+
+    Install sass-loader and configure bootstrap
+
+[33mcommit 05eba6b30a6477e969d4f84dc144fa9240fa0a13[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Thu Apr 30 17:52:37 2020 +0200
+
+    Update readme file
+
+[33mcommit 1b5d407472edf53d70801fd48ee9ae72b51157f1[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Thu Apr 30 16:27:04 2020 +0200
+
+    Install bootstrap
+
+[33mcommit 2354ce5b240188b75a0f8b565e8f8ee622debc62[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Thu Apr 30 15:39:50 2020 +0200
+
+    Install webpack encore
+
+[33mcommit 7969748da032b6496d3ebcf2db30bb4d54b62d83[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Wed Apr 29 18:38:22 2020 +0200
+
+    Edit roles
+    
+    - only admin can modify users
+    - only logged users can get access to CRM
+
+[33mcommit b2df8bcc219a2228a750c56971a64034160bac57[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Fri Apr 24 18:07:21 2020 +0200
+
+    Create login page with authenticator
+
+[33mcommit fd2690e09488fa94420fdad002d3f1ea2d3dcf56[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Fri Apr 24 16:44:25 2020 +0200
+
+    Add form to function create new client
+    
+    -make form allow to add new user
+    -set flash messages which appears after add or delete client
+    -change form theme to bootstrap
+
+[33mcommit 1dff155c52fc587858fe774959a78c9ada0729ac[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Thu Apr 23 23:49:21 2020 +0200
+
+    - make functions: create new client and delete client
+    - add flash messages
+
+[33mcommit 21c4df16e81c4fa0b67aebcc4d4a6c25886e64df[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Wed Apr 22 17:47:05 2020 +0200
+
+    Add views
+
+[33mcommit 61d65c45671fb2d7a1d1f4f130e0a3d29f4384d0[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Wed Apr 22 15:16:37 2020 +0200
+
+    Beggining of the project
+
+[33mcommit 70bbde255539beb7449d57ed763bbbe528ed9c30[m
+Author: Norbert <64070603+PHPHitman@users.noreply.github.com>
+Date:   Wed Apr 22 14:57:48 2020 +0200
+
+    Initial commit

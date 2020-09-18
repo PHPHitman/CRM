@@ -1,9 +1,9 @@
 {
   "devDependencies": {
-    "@symfony/webpack-encore": "^0.29.1",
+    "@symfony/webpack-encore": "^0.31.0",
     "bootstrap": "^4.4.1",
     "core-js": "^3.0.0",
-    "node-sass": "^4.14.0",
+    "node-sass": "^4.14.1",
     "postcss-loader": "^3.0.0",
     "regenerator-runtime": "^0.13.2",
     "sass-loader": "^7.1.0",

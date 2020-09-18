@@ -15,44 +15,70 @@
 * [Contact](#contact)
 
 ## General info
-Simple CRM system for a company. 
+Simple CRM system for a company.
 
-I add some frontend text content in Polish. Project is still in progress so I'll be adding a new functionality and of course some of frontend code.
+For now it has:
+* Login page with authentication
+* Administration panel
+  * Admin can view, delete or create new employee
+* User or admin can add new clients
+  * All of the users can view details about client
+  * Appication save information about date and person who added new client
+* All of users can add new orders
+  * Orders are related to clients
+  * Application save details about who added order and at what date
 
 
 ## Screenshots
 
+<img src="https://imagizer.imageshack.com/img924/4347/GmtPMl.png"/><br/>
+List of employee<br/><br/>
+
+<img src="https://imagizer.imageshack.com/img922/1328/uvAYoj.png"/><br/>
+List of clients<br/><br/>
+
+<img src="https://imagizer.imageshack.com/img922/3198/gkhkxW.png"/><br/>
+Add new client form<br/><br/>
+
+<img src="https://imagizer.imageshack.com/img923/6444/i3XiyU.png"/><br/>
+List of orders<br/><br/>
+
+<img src="https://imagizer.imageshack.com/img923/6023/AqiYV1.png"><br/>
+Add new order form<br/><br/>
 
 ## Technologies
 * Tech 1 - Symfony 5.0.7
 * Tech 2 - PHP 7.3.10
-* Tech 3 - HTML/CSS/JavaScript
-* Tech 4 - Bootstrap 4 
+* Tech 3 - HTML/SCSS/JavaScript
+* Tech 4 - Bootstrap 4
+* Tech 4 - Twig
+* Tech 4 - Webpack
+* Tech 4 - Entity Manager
 
 ## Setup
 
-* Clone or download repository and unpack it (if you're going to use XAMPP move it into htdocs inside XAMPP installation directory)
-* Open terminal and go into project directory
+
  * Start your local server, for example Apache with XAMPP, and switch on MySQL server as well. You can use Symfony server instead by executing command:
-	  * php -S 127.0.0.1:8000 -t public
-* Ececute commands:
+	  * php -S 127.0.0.1:8000 -t public<br/><br/>
+ Ececute commands:
 	* composer install
 	* yarn install
 	* yarn add --dev @symfony/webpack-encore
 	* yarn add webpack-notifier --dev
 	* yarn encore dev
-* Type localhost/crm-master/public/index.php/ in your browser (*crm-master* is default project name)
 
+* Type localhost address in your browser
 
-I wrote this instruction on my computer where I have already installed PHP and setted global path, so probably it will be necessery. If you use password to phpmyadmin you'll have to add it into .env file. 
-
-If you'll have any issues with setup sorry for that, I wrote it from my mind, didn't check it on different machine. 
+If I missed something, sorry, never tested on different machine.
 
 ## Code Examples
 
 
 ## Features
 
+* Easy access to information about clients and orders
+
+* Clear interface
 
 ## Status
 Project is in progress.
@@ -61,4 +87,4 @@ Project is in progress.
 Internet and others CRM
 
 ## Contact
-Created by PHPHitman. 
+Created by PHPHitman.
